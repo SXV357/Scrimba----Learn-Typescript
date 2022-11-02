@@ -54,27 +54,61 @@ export default function Practice() {
 
   //any type(2 ways to specify for objects)
 
-  const newObj : any[] = [
+  const newObj: any[] = [
     {
-        // can have as many properties inside with any type as needed
-    }
-  ]
+      // can have as many properties inside with any type as needed
+    },
+  ];
 
   //2nd way
-  const objNew : ({} | {})[] = [{}] // if we want to specify two different kinds of objects that can come in
+  const objNew: ({} | {})[] = [{}]; // if we want to specify two different kinds of objects that can come in
 
   //union types
-  function add (num1: number | string, num2: number | string){}
+  function add(num1: number | string, num2: number | string) {}
 
   //function return types(void, some type, undefined)
-  function countOccurrences(val: string) : number {
+  function countOccurrences(val: string): number {
     let count = 0;
-    for (let i = 0; i < val.length; i++){
-        if (val.charAt(i).includes("a")){
-            count++;
-        }
+    for (let i = 0; i < val.length; i++) {
+      if (val.charAt(i).includes("a")) {
+        count++;
+      }
     }
     return count;
+  }
+
+  //interfaces - can be used to make code more cleaner
+  //syntax:
+  interface something {
+    // define whatever I want and reuse it as many times as I want
+    name: string;
+    age: Number;
+  }
+
+  function useSomething(arr: something[]): string {
+    return arr[0].name.slice(0, 2);
+  }
+
+  // classes in typescript
+
+  class Car {
+    make: string;
+    year: number | string;
+    color: string;
+    constructor(make: string, year: number | string, color: string) {
+      this.make = make;
+      this.year = year;
+      this.color = color;
+    }
+    getMake(): string {
+      return this.make;
+    }
+    getYear(): number | string {
+      return this.year;
+    }
+    getColor(): string {
+      return this.color;
+    }
   }
 
   return (

@@ -68,6 +68,25 @@ export default function App() {
     return arr.every((item) => typeof item === "number");
   }
 
+  //types(used if I want to assign only specific values for a given variable)
+
+  type Country = "USA" | "United Kingdom" | "India"
+  type Price = 100000 | 150000 | 200000
+
+  const properties: {
+    country: Country, // can only accept the above 3 countries
+    price: Price // can only accept the above 3 prices
+  }[] = [{
+    country: "India",
+    price: 150000
+  }, {
+    country: "USA",
+    price: 200000,
+  }, {
+    country: "United Kingdom",
+    price: 100000,
+  }]
+
   // console.log(determineIfAllNums());
 
   return (

@@ -77,7 +77,7 @@ export default function Practice() {
     return count;
   }
 
-  //interfaces - can be used to make code more cleaner
+  //interfaces - can be used to make code more cleaner(maintain internal structure)
   //syntax:
   interface something {
     // define whatever I want and reuse it as many times as I want
@@ -85,17 +85,48 @@ export default function Practice() {
     age: Number;
   }
 
+  interface somethingElse {
+    year: string | number,
+    mpg: number
+  }
+
+  function determineEfficiency(array: somethingElse[]) : boolean {
+    if (array[0].year === 2018 && array[0].mpg >= 36){
+      return true;
+    }
+    return false;
+  }
+
+  console.log(determineEfficiency([{
+    year: 2017,
+    mpg: 28
+  }]))
+
   function useSomething(arr: something[]): string {
+    // receives an array of objects as input
     return arr[0].name.slice(0, 2);
   }
 
-  // classes in typescript
+  console.log(
+    useSomething([
+      {
+        name: "Shreyas",
+        age: 17,
+      },
+    ])
+  );
 
+  //modules
+
+  // default exports don't need curly braces around them(can the vars whatever you want
+  // be more explicit when importing enums/types/interfaces if > 1 export from a given file
+
+  // classes in typescript
   class Car {
     make: string;
     year: number | string;
     color: string;
-    constructor(make: string, year: number | string, color: string) {
+    constructor(make: string, year: number | string, color: string) { // don't need to specify times but can do so to be more explicit
       this.make = make;
       this.year = year;
       this.color = color;
